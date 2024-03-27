@@ -1,26 +1,22 @@
-version: '3.3'
+version: '3'
 services:
-  express:
-     build:
-       context: ./backend # Path to your Express app (adjust as needed)
-       dockerfile: Dockerfile.express
-     ports:
-       - "5000:5000" # Map host port 8000 to container port 8000
-
-angular:
-     build:
-      context: ./frontend # Path to your Angular app (adjust as needed)
-      dockerfile: Dockerfile.angular
-     ports:
-       - "4200:4200" # Map host port 4200 to container port 80
-     depends_on:
-      - express
-
-mongo:
-    image: mongo:latest # Use the official MongoDB image
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
-      - "27017:27017" # Map host port 27017 to container port 27017
+      - '5000:5000'
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - '4200:4200'
+  mongodb:
+    image: mongo
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=mongoadmin
-      - MONGO_INITDB_ROOT_PASSWORD=bdung
-     
+      MONGO_INITDB_ROOT_USERNAME: myuser
+      MONGO_INITDB_ROOT_PASSWORD: mypassword
+      MONGO_INITDB_DATABASE: ILEARN
+    ports:
+      - '27017:27017'
