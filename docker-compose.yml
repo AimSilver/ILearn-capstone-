@@ -3,13 +3,13 @@ services:
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.express
     ports:
       - '5000:5000'
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.angular
     ports:
       - '4200:4200'
   mongodb:
