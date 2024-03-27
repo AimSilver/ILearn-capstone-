@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="row">
+    <!-- Course Item -->
+    <div class="col-md-4 mb-4" *ngFor="let course of courses">
+      <div class="card">
+        <img
+          class="card-img-top"
+          src="../../../assets/images/courses/{{ course.coursename }}.svg"
+          alt="Course Image"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ course.coursename }}</h5>
+          <p class="card-text">{{ course.price }}</p>
+          <!-- Buttons -->
+          <div class="btn-group" role="group" aria-label="Course Actions">
+            <button
+              *ngIf="user.role === 'faculty' || user.isAdmin"
+              type="button"
+              class="btn btn-secondary"
+              routerLink="/home/updateCourse/{{ course.id }}"
+            >
+              Edit
+            </button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              routerLink="/course-page/{{ course.id }}"
+            >
+              Open
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End of Course Item -->
+  </div>
+</div>

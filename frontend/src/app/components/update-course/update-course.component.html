@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+  <div class="col-md-10">
+    <div class="card">
+      <h3 class="card-header text-center" style="color: rgb(87, 20, 11)">
+        Update Course
+      </h3>
+      <div class="card-body">
+        <form
+          [formGroup]="updateCourseForm"
+          (ngSubmit)="updateCourse()"
+          class="my-4"
+        >
+          <div class="form-group">
+            <label for="courseName"
+              ><strong
+                style="
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                    'Trebuchet MS', sans-serif;
+                "
+                >Course Name</strong
+              ></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="courseName"
+              formControlName="courseName"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="price"
+              ><strong
+                style="
+                  font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                    'Trebuchet MS', sans-serif;
+                "
+                >Price</strong
+              ></label
+            >
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input
+                type="number"
+                class="form-control"
+                id="price"
+                formControlName="price"
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container mt-5">
+  <div class="card">
+    <img
+      class="card-img-top"
+      src="../../../assets/images/courses/{{ course.coursename }}.svg"
+      alt="Course image"
+    />
+    <div class="card-body">
+      <h2 class="card-title" id="course-name">
+        {{ course.coursename }} Course
+      </h2>
+      <br /><br />
+      <h4 class="card-subtitle mb-2 text-muted" id="course-duration">
+        Course Duration
+      </h4>
+      <p class="card-text" id="course-duration">
+        {{ courseData.courseDuration }}
+      </p>
+      <h4 class="card-subtitle mb-2 text-muted" id="course-details">
+        Course Details
+      </h4>
+      <p class="card-text" id="course-details">
+        {{ courseData.courseDetails }}
+      </p>
+      <h4 class="card-subtitle mb-2 text-muted" id="course-languages">
+        Course Languages
+      </h4>
+      <p class="card-text" id="course-languages">
+        {{ courseData.courseLanguages }}
+      </p>
+      <h4 class="card-subtitle mb-2 text-muted" id="course-fee">Course Fees</h4>
+      <p class="card-text" id="course-fee">
+        {{ courseData.courseFee }}
+      </p>
+      <a (click)="addSubscription()" class="btn btn-primary btn-block"
+        >Enroll</a
+      >
+    </div>
+  </div>
+</div>

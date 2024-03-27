@@ -1,0 +1,50 @@
+<div class="container mt-5">
+  <div class="card user-card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <img
+            [src]="'../../../assets/images/users/' + user.role + '.png'"
+            alt="User Avatar"
+            class="img-fluid user-avatar"
+          />
+        </div>
+        <div class="col-md-9">
+          <h3 class="user-name" style="text-transform: capitalize">
+            {{ user.username }}
+          </h3>
+          <p class="user-role" style="text-transform: capitalize; color: blue">
+            {{ user.role }}
+          </p>
+          <div class="user-details">
+            <p>
+              <strong
+                style="
+                  font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                    sans-serif;
+                "
+                >Email:</strong
+              >
+              <i style="color: rgb(94, 23, 10)"> {{ user.email }}</i>
+            </p>
+            <p>
+              <strong
+                style="
+                  font-family: 'Lucida Sans', 'Lucida Sans Regular',
+                    'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
+                    sans-serif;
+                "
+                >Location:</strong
+              >
+              <span style="color: rgb(94, 23, 10); text-transform: capitalize">
+                {{ user.address }}</span
+              >
+            </p>
+            <!-- Add more user details as needed -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

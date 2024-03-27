@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let user of allUsers">
+      <div class="card mb-3">
+        <img
+          src="../../../assets/images/users/{{ user.role }}.png"
+          class="card-img-top"
+          alt="Learner Avatar"
+        />
+        <div class="card-body">
+          <h5 class="card-title">
+            <span style="text-transform: capitalize">{{ user.username }}</span>
+          </h5>
+          <p class="card-text">
+            <strong>Email :</strong>
+            <i style="color: orangered"> {{ user.email }}</i>
+          </p>
+          <p class="card-text">
+            <strong>Address :</strong
+            ><span
+              style="
+                font-family: 'Gill Sans', 'Gill Sans MT', Calibri,
+                  'Trebuchet MS', sans-serif;
+                text-transform: capitalize;
+                color: blueviolet;
+              "
+            >
+              {{ user.address }}</span
+            >
+          </p>
+          <p class="card-text">
+            <span class="actions">
+              <a
+                class="btn"
+                (click)="handleToggleBlock(user.id)"
+                style="background-color: rgb(89, 76, 159); color: whitesmoke"
+              >
+                {{ user.isBlocked ? "Unblock" : "Block" }}
+              </a>
+            </span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
