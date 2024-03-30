@@ -1,8 +1,8 @@
 {
-  "name": "foodmine",
+  "name": "ilearn",
   "version": "1.0.0",
   "engines": {
-    "node": ">=20 <21"
+    "node": ">=18 <21"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -1,3 +1,5 @@
+console.log("Node.js version:", process.version);
+
 import dotenv from "dotenv";
 dotenv.config();
 import path from "path";

@@ -6,17 +6,17 @@ services:
       dockerfile: Dockerfile.express
     ports:
       - '5000:5000'
+    environment:
+      -   MONGODB_URL=mongodb://host.docker.internal:27017/ILEARN
+    command: npm run start
+    
+
   frontend:
     build:
       context: ./frontend
       dockerfile: Dockerfile.angular
     ports:
       - '4200:4200'
-  mongodb:
-    image: mongo
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: myuser
-      MONGO_INITDB_ROOT_PASSWORD: mypassword
-      MONGO_INITDB_DATABASE: ILEARN
-    ports:
-      - '27017:27017'
+    command: ng serve --host 0.0.0.0
+
+  

@@ -1,23 +1,26 @@
-# Use an official Node.js image as the base
-FROM node:14
+# Use a base Node.js image
+FROM node:18.17
 
-# Set the working directory to the Angular app root
+# Set the working directory
 WORKDIR /usr/src/app/frontend
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# Install dependencies
+# Install Angular CLI globally
+RUN npm install -g @angular/cli
+
+# Install frontend dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of your frontend code
 COPY . .
 
 # Build the Angular app
-RUN ng build --prod
+RUN ng build --configuration production
 
-# Expose port 80
+# Expose the port your Angular app listens on (e.g., 4200)
 EXPOSE 4200
 
-# Start the Angular app
-CMD ["npm", "start"]
+# Start an HTTP server to serve the built Angular app
+CMD ["npx",  "dist/ILearn"]
