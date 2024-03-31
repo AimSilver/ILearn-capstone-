@@ -12,16 +12,21 @@ export const signin = asyncHandler(async (req, res) => {
   const user = await UserModel.findOne({
     $or: [{ username: req.body.username }, { email: req.body.email }],
   });
-
-  if (
-    user?.isBlocked === false &&
-    (await bcrypt.compare(req.body.password, user.password))
-  ) {
-    res.send(generateTokenResponse(user));
-  } else {
+  if (!user) {
+    res.status(HTTP_BAD_REQUEST).send("User not found!");
+    return;
+  }
+  if (user.isBlocked) {
     res
       .status(HTTP_BAD_REQUEST)
-      .send("User name or password is not valid! or user is not authorized");
+      .send("User is blocked. Please contact support.");
+    return;
+  }
+
+  if (await bcrypt.compare(req.body.password, user.password)) {
+    res.send(generateTokenResponse(user));
+  } else {
+    res.status(HTTP_BAD_REQUEST).send("User name or password is not valid! ");
   }
 });
 // user registration

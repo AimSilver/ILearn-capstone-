@@ -1,4 +1,4 @@
-import { connect, ConnectOptions } from "mongoose";
+/* import { connect, ConnectOptions } from "mongoose";
 require("dotenv").config();
 export const dbConnect = () => {
   console.log(process.env.MONGODB_URL!);
@@ -12,11 +12,11 @@ export const dbConnect = () => {
       console.error(error);
     }
   );
-};
+}; */
 
 // -----------------------------------------------------------------------------------------
 
-//-----------without docker-------------------
+// -----------without docker-------------------
 // import { connect, ConnectOptions } from "mongoose";
 // require("dotenv").config();
 // export const dbConnect = () => {
@@ -31,3 +31,20 @@ export const dbConnect = () => {
 //     }
 //   );
 // };
+
+// ..................mongodb inside docker...........
+
+import { connect, ConnectOptions } from "mongoose";
+require("dotenv").config();
+export const dbConnect = () => {
+  console.log(process.env.MONGODB_URL!);
+  connect("mongodb://mongo:27017/ILEARN").then(
+    () => {
+      console.log("Database connected successfully");
+    },
+    (error) => {
+      console.error("Database connection failed");
+      console.error(error);
+    }
+  );
+};

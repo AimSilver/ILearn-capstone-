@@ -7,7 +7,7 @@ services:
     ports:
       - '5000:5000'
     environment:
-      -   MONGODB_URL=mongodb://host.docker.internal:27017/ILEARN
+      -   MONGODB_URL=mongodb://mongo:27017/ILEARN
     command: npm run start
     
 
@@ -19,4 +19,9 @@ services:
       - '4200:4200'
     command: ng serve --host 0.0.0.0
 
-  
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment: 
+     MONGO_INITDB_DATABASE: ILEARN
