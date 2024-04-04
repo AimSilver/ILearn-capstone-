@@ -44,6 +44,8 @@ app.use(
   }
 );
 
+console.log(process.env.MONGODB_URL);
+console.log(process.env.JWT_SECRET);
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`Server started at http://localhost:` + port);

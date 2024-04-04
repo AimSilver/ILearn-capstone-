@@ -56,6 +56,7 @@ export const signup = asyncHandler(async (req, res) => {
 
 //function for jwt token
 const generateTokenResponse = (user: User) => {
+  console.log(`this is from auth` + process.env.JWT_SECRET);
   const token = jwt.sign(
     {
       id: user.id,
